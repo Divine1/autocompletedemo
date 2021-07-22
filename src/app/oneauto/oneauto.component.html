@@ -1,0 +1,34 @@
+<pre>autocomef {{ autocomef.value | json }}</pre>
+
+<form [formGroup]="autocomef" (ngSubmit)="submitReactiveForm()">
+  
+  <div class="ng-autocomplete ng-autocomplete-custom countries">
+    countries
+    <ng-autocomplete
+        #auto
+      [data]="countries"
+      formControlName="country"
+      [searchKeyword]="keyword"
+      [placeholder]="placeholderCountry"
+      (selected)='selectEventCountry($event)'
+      (inputChanged)='onChangeSearchCountry($event)'
+      (inputFocused)='onFocusedCountry($event)'
+      (inputCleared)="searchClearedCountry()"  
+      
+      (opened)="openedCountry()"
+      (closed)="closedCountry()"
+      [itemTemplate]="itemTemplateCountry"
+      [notFoundTemplate]="notFoundTemplateCountry">
+    </ng-autocomplete>
+    <ng-template #itemTemplateCountry let-item>
+      <a [innerHTML]="item.name"></a>
+    </ng-template>
+    <ng-template #notFoundTemplateCountry let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
+  </div>
+  <br /><br />
+  
+</form>
+
+<button (click)="onclear()">clear</button>

@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 //import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { TwoautoComponent } from './twoauto/twoauto.component';
+import { OneautoComponent } from './oneauto/oneauto.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TwoautoComponent,
+    OneautoComponent
   ],
   imports: [
     BrowserModule,
